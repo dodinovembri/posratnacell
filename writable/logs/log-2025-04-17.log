@@ -1,0 +1,217 @@
+DEBUG - 2025-04-17 08:12:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-04-17 08:32:01 --> ErrorException: Undefined property: stdClass::$stock
+[Method: GET, Route: product]
+in APPPATH\Views\product\index.php on line 115.
+ 1 APPPATH\Views\product\index.php(115): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$stock', 'C:\\xampp\\htdocs\\ratnacell\\app\\Views\\product\\index.php', 115)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ratnacell\\app\\Views\\product\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('product/index', [], true)
+ 5 APPPATH\Controllers\ProductController.php(17): view('product/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 09:09:07 --> ErrorException: Undefined property: stdClass::$stock
+[Method: GET, Route: product]
+in APPPATH\Views\product\index.php on line 115.
+ 1 APPPATH\Views\product\index.php(115): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$stock', 'C:\\xampp\\htdocs\\ratnacell\\app\\Views\\product\\index.php', 115)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\ratnacell\\app\\Views\\product\\index.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('product/index', [], true)
+ 5 APPPATH\Controllers\ProductController.php(24): view('product/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 09:23:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "product/create.php"
+[Method: GET, Route: product/create]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('product/create.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('product/create', [], true)
+ 3 APPPATH\Controllers\ProductController.php(26): view('product/create')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->create()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 09:26:50 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "dropzone@5.9.3"
+[Method: GET, Route: unpkg.com/dropzone@5.9.3/dist/min/dropzone.min.js]
+in SYSTEMPATH\Router\Router.php on line 739.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('unpkg.com/dropzone@5.9.3/dist/min/dropzone.min.js')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('unpkg.com/dropzone@5.9.3/dist/min/dropzone.min.js')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+DEBUG - 2025-04-17 13:20:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-04-17 13:43:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-04-17 13:53:05 --> Error: Object of class App\Models\ProductModel could not be converted to string
+[Method: POST, Route: product/store]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 13:54:25 --> Error: Object of class App\Models\ProductModel could not be converted to string
+[Method: POST, Route: product/store]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 13:55:14 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\ProductModel::insert_id
+[Method: POST, Route: product/store]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\ProductController.php(41): CodeIgniter\Model->__call('insert_id', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 13:57:47 --> Error: Call to undefined method CodeIgniter\Database\MySQLi\Connection::insert_id()
+[Method: POST, Route: product/store]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 14:00:13 --> ErrorException: Undefined property: App\Controllers\ProductController::$db
+[Method: POST, Route: product/store]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 APPPATH\Controllers\ProductController.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\ProductController::$db', 'C:\\xampp\\htdocs\\ratnacell\\app\\Controllers\\ProductController.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 14:11:32 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\ProductModel::insert_id
+[Method: POST, Route: product/store]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\ProductController.php(41): CodeIgniter\Model->__call('insert_id', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 14:13:48 --> Error: Call to undefined method App\Controllers\ProductController::ProductModel()
+[Method: POST, Route: product/store]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 14:14:18 --> Error: Object of class App\Models\ProductModel could not be converted to string
+[Method: POST, Route: product/store]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 14:14:53 --> Error: Object of class App\Models\ProductModel could not be converted to string
+[Method: POST, Route: product/store]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 14:15:42 --> Error: Object of class App\Models\ProductModel could not be converted to string
+[Method: POST, Route: product/store]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 14:16:04 --> Error: Object of class App\Models\ProductModel could not be converted to string
+[Method: POST, Route: product/store]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 14:23:29 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\ProductModel::LAST_INSERT_ID
+[Method: POST, Route: product/store]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\ProductController.php(41): CodeIgniter\Model->__call('LAST_INSERT_ID', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 15:00:40 --> Error: Object of class App\Models\ProductModel could not be converted to string
+[Method: POST, Route: product/store]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+CRITICAL - 2025-04-17 15:02:01 --> ErrorException: Undefined property: App\Controllers\ProductController::$db
+[Method: POST, Route: product/store]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 APPPATH\Controllers\ProductController.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\ProductController::$db', 'C:\\xampp\\htdocs\\ratnacell\\app\\Controllers\\ProductController.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
+DEBUG - 2025-04-17 15:06:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-04-17 15:15:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-04-17 15:29:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-04-17 15:29:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-04-17 15:29:38 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "sales""
+[Method: GET, Route: sales%22]
+in SYSTEMPATH\Router\Router.php on line 739.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('sales"')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('sales"')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ratnacell\\public\\index.php')
