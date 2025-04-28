@@ -44,36 +44,7 @@
 <body class="main-bg main-bg-opac main-bg-blur roundedui adminuiux-header-standard adminuiux-sidebar-standard adminuiux-mobile-footer-fill-theme adminuiux-header-transparent theme-pista bg-r-gradient adminuiux-sidebar-fill-none scrollup" data-theme="theme-pista" data-sidebarfill="adminuiux-sidebar-fill-none" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0" data-sidebarlayout="adminuiux-sidebar-standard"
     data-headerlayout="adminuiux-header-standard" data-headerfill="adminuiux-header-transparent" data-bggradient="bg-r-gradient" style="">
 
-    <header class="adminuiux-header">
-        <!-- Fixed navbar -->
-        <nav class="navbar navbar-expand-lg fixed-top">
-            <div class="container-fluid">
-                <!-- logo -->
-                <a class="navbar-brand" href="<?= base_url('dashboard') ?>">
-                    <img data-bs-img="light" src="<?= base_url('img/logo-light.svg') ?>" alt="" class="avatar avatar-30">
-                    <img data-bs-img="dark" src="<?= base_url('img/logo.svg') ?>" alt="" class="avatar avatar-30">
-                    <div class="d-block ps-2">
-                        <h6 class="fs-6 mb-0">Ratna<span class="fs-6"> Cellular</span></h6>
-                        <p class="company-tagline">And Collections</p>
-                    </div>
-                </a>
-
-                <!-- right icons button -->
-                <div class="ms-auto">
-                    <!-- dark mode -->
-                    <button class="btn btn-link btn-square btnsunmoon btn-link-header" id="btn-layout-modes-dark-page">
-                        <i class="sun mx-auto" data-feather="sun"></i>
-                        <i class="moon mx-auto" data-feather="moon"></i>
-                    </button>
-                    <!-- notification dropdown -->
-                    <button class="btn btn-link btn-square btn-icon btn-link-header position-relative" data-bs-toggle="offcanvas" data-bs-target="#view-notification">
-                        <i data-feather="bell"></i>
-                    </button>
-                </div>
-            </div>
-        </nav>
-
-    </header>
+    <?= $this->include('components/header') ?>
 
     <div class="adminuiux-wrap">
         <main class="adminuiux-content">
@@ -102,7 +73,12 @@
                                 <?php } ?>
                                 <td style="text-align: left;"><?= $value->selling_price ?></td>
                                 <td>
-                                    <a href="<?= base_url('adjustment/create/' . $value->id) ?>"><button class="btn btn-square btn-link theme-blue"></i>Tambah Ke Produk</button></a>
+                                    
+                                    <a href="<?= base_url('adjustment/create/' . $value->id) ?>">
+                                    <button type="button" class="btn btn-primary">
+                                        (+) Produk
+                                    </button>    
+                                </a>
                                 </td>
                             </tr>
                         <?php } ?>

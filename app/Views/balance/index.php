@@ -50,41 +50,7 @@
 <body class="main-bg main-bg-opac main-bg-blur roundedui adminuiux-header-standard adminuiux-sidebar-standard adminuiux-mobile-footer-fill-theme adminuiux-header-transparent theme-pista bg-r-gradient adminuiux-sidebar-fill-none scrollup" data-theme="theme-pista" data-sidebarfill="adminuiux-sidebar-fill-none" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0" data-sidebarlayout="adminuiux-sidebar-standard"
     data-headerlayout="adminuiux-header-standard" data-headerfill="adminuiux-header-transparent" data-bggradient="bg-r-gradient" style="">
 
-    <header class="adminuiux-header">
-        <!-- Fixed navbar -->
-        <nav class="navbar navbar-expand-lg fixed-top">
-            <div class="container-fluid">
-                <!-- logo -->
-                <a class="navbar-brand" href="<?= base_url('dashboard') ?>">
-                    <img data-bs-img="light" src="<?= base_url('img/logo-light.svg') ?>" alt="" class="avatar avatar-30">
-                    <img data-bs-img="dark" src="<?= base_url('img/logo.svg') ?>" alt="" class="avatar avatar-30">
-                    <div class="d-block ps-2">
-                        <h6 class="fs-6 mb-0">Ratna<span class="fs-6"> Cellular</span></h6>
-                        <p class="company-tagline">And Collections</p>
-                    </div>
-                </a>
-
-                <!-- right icons button -->
-                <div class="ms-auto">
-                    <!-- dark mode -->
-                    <button class="btn btn-link btn-square btnsunmoon btn-link-header" id="btn-layout-modes-dark-page">
-                        <i class="sun mx-auto" data-feather="sun"></i>
-                        <i class="moon mx-auto" data-feather="moon"></i>
-                    </button>
-                    <!-- notification dropdown -->
-                    <button class="btn btn-link btn-square btn-icon btn-link-header position-relative" data-bs-toggle="offcanvas" data-bs-target="#view-notification">
-                        <i data-feather="bell"></i>
-                    </button>
-                    <!-- notification dropdown -->
-                    <a href="<?= base_url('logout') ?>"><button class="btn btn-link btn-square btn-icon btn-link-header position-relative">
-                            <i data-feather="log-out"></i>
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </nav>
-
-    </header>
+    <?= $this->include('components/header') ?>
 
     <div class="adminuiux-wrap">
         <main class="adminuiux-content">
@@ -108,7 +74,8 @@
                                 <td style="text-align: left;"><?= $value->app_name ?></td>
                                 <td style="text-align: left;"><?= $value->balance_open ?></td>
                                 <td style="text-align: left;"><?= $value->balance_close ?></td>
-                                <td><!-- Tombol untuk memicu modal -->
+                                <td>
+                                    <!-- Tombol untuk memicu modal -->
                                     <button type="button" class="btn btn-primary openModalBtn" data-id="<?= $value->id ?>" data-warehouse="<?= is_null($warehouse) ? session()->get('warehouse') : $warehouse; ?>" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $value->id; ?>">
                                         Edit
                                     </button>
@@ -135,32 +102,34 @@
                                                                 <label>Saldo <?= $value->app_name; ?> Open</label>
                                                             </div>
                                                         </div>
+                                                        <?php if ($value->app_name != "Livin Merchant") { ?>
 
-                                                        <div class="col-12 col-sm-6 col-md-4 col-lg-6">
-                                                            <div class="form-check mb-3">
-                                                                <input class="form-check-input" type="radio" value="plus" id="radioC1" name="indicator_adjust">
-                                                                <label class="form-check-label" for="radioC1"> Tambah Saldo </label>
-                                                            </div>
-                                                            <div class="form-check mb-3" style="--adminuiux-theme-1:var(--adminuiux-theme-accent-1)">
-                                                                <input class="form-check-input" type="radio" value="minus" id="radioC1" name="indicator_adjust">
-                                                                <label class="form-check-label" for="radioC1"> Kurangi Saldo </label>
-                                                            </div>
-                                                        </div>
 
-                                                        <div class="col-12">
-                                                            <div class="form-floating mb-3">
-                                                                <input class="form-control" type="text" name="adjust_description">
-                                                                <label>Keterangan Sumber Uang</label>
+                                                            <div class="col-12 col-sm-6 col-md-4 col-lg-6">
+                                                                <div class="form-check mb-3">
+                                                                    <input class="form-check-input" type="radio" value="plus" id="radioC1" name="indicator_adjust">
+                                                                    <label class="form-check-label" for="radioC1"> Tambah Saldo </label>
+                                                                </div>
+                                                                <div class="form-check mb-3" style="--adminuiux-theme-1:var(--adminuiux-theme-accent-1)">
+                                                                    <input class="form-check-input" type="radio" value="minus" id="radioC1" name="indicator_adjust">
+                                                                    <label class="form-check-label" for="radioC1"> Kurangi Saldo </label>
+                                                                </div>
                                                             </div>
-                                                        </div>
 
-                                                        <div class="col-12">
-                                                            <div class="form-floating mb-3">
-                                                                <input class="form-control format-rupiah-adjustment" type="text" name="adjust_amount">
-                                                                <label>Nominal Tambah/ Kurangi Saldo <?= $value->app_name; ?></label>
+                                                            <div class="col-12">
+                                                                <div class="form-floating mb-3">
+                                                                    <input class="form-control" type="text" name="adjust_description">
+                                                                    <label>Keterangan Sumber Uang</label>
+                                                                </div>
                                                             </div>
-                                                        </div>
 
+                                                            <div class="col-12">
+                                                                <div class="form-floating mb-3">
+                                                                    <input class="form-control format-rupiah-adjustment" type="text" name="adjust_amount">
+                                                                    <label>Nominal Tambah/ Kurangi Saldo <?= $value->app_name; ?></label>
+                                                                </div>
+                                                            </div>
+                                                        <?php } ?>
                                                         <div class="col-12">
                                                             <div class="form-floating mb-3">
                                                                 <input class="form-control format-rupiah" type="text" id="balance_close" name="balance_close" value="<?= $value->balance_close; ?>">

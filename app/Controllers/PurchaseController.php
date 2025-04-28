@@ -87,7 +87,7 @@ class PurchaseController extends BaseController
             'qty' => $qty_order,
             'base_price' => $base_price,
             'amount' => $final_amount,
-            'date' => date('Y-m-d H:i:s'),
+            'date' => Time::now('Asia/Jakarta'),
             'warehouse' => $warehouse,
             'user' => session()->get('name'),
         ]);
@@ -98,7 +98,7 @@ class PurchaseController extends BaseController
         $stock = new StockModel();
         $stock->update($productdb->stock_id, [
             'qty' => $aftersale_stock,
-            'modified_at' => date('Y-m-d H:i:s'),
+            'modified_at' => Time::now('Asia/Jakarta'),
             'modified_by' => session()->get('name')
         ]);
         
@@ -109,7 +109,7 @@ class PurchaseController extends BaseController
             $product = new ProductModel();
             $product->update($productdb->productid, [
                 'base_price' => $new_base_price,
-                'modified_at' => date('Y-m-d H:i:s'),
+                'modified_at' => Time::now('Asia/Jakarta'),
                 'modified_by' => session()->get('name')
             ]);
         }

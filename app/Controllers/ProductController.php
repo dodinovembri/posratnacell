@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ProductModel;
 use App\Models\StockModel;
+use CodeIgniter\I18n\Time;
 
 class ProductController extends BaseController
 {
@@ -54,7 +55,7 @@ class ProductController extends BaseController
             'base_price' => intval($this->request->getPost('base_price')),
             'selling_price' => intval($this->request->getPost('selling_price')),
             'product_type' => "fee_fixed",
-            'created_at' => date('Y-m-d H:i:s')
+            'created_at' => Time::now('Asia/Jakarta')
         ]);
 
         $last_id = $this->db->insertID();
@@ -100,7 +101,7 @@ class ProductController extends BaseController
             'code' => $this->request->getPost('code'),
             'name' => $this->request->getPost('name'),
             'product_type' => "fee_transfer",
-            'created_at' => date('Y-m-d H:i:s')
+            'created_at' => Time::now('Asia/Jakarta')
         ]);
 
         $last_id = $this->db->insertID();
@@ -134,7 +135,7 @@ class ProductController extends BaseController
             'code' => $this->request->getPost('code'),
             'name' => $this->request->getPost('name'),
             'product_type' => "fee_package",
-            'created_at' => date('Y-m-d H:i:s')
+            'created_at' => Time::now('Asia/Jakarta')
         ]);
 
         $last_id = $this->db->insertID();

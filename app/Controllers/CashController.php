@@ -88,7 +88,7 @@ class CashController extends BaseController
             '2ribu' => $this->request->getPost('cash_open_2ribu'),
             '1ribu' => $this->request->getPost('cash_open_1ribu'),
             '500perak' => $this->request->getPost('cash_open_500perak'),
-            'date' => date('Y-m-d H:i:s'),
+            'date' => Time::now('Asia/Jakarta'),
             'user' => session()->get('name'),
             'warehouse' =>  $this->request->getPost('cash_session')
         ]);
@@ -110,7 +110,7 @@ class CashController extends BaseController
             '2ribu' => $this->request->getPost('cash_open_2ribu'),
             '1ribu' => $this->request->getPost('cash_open_1ribu'),
             '500perak' => $this->request->getPost('cash_open_500perak'),
-            'modified_at' => date('Y-m-d H:i:s'),
+            'modified_at' => Time::now('Asia/Jakarta'),
             'modified_by' => session()->get('name')
         ]);
 
@@ -132,7 +132,7 @@ class CashController extends BaseController
             '2ribu' => $this->request->getPost('cash_close_2ribu'),
             '1ribu' => $this->request->getPost('cash_close_1ribu'),
             '500perak' => $this->request->getPost('cash_close_500perak'),
-            'date' => date('Y-m-d H:i:s'),
+            'date' => Time::now('Asia/Jakarta'),
             'user' => session()->get('name'),
             'warehouse' => $warehouse
         ]);
@@ -155,7 +155,7 @@ class CashController extends BaseController
             '2ribu' => $this->request->getPost('cash_close_2ribu'),
             '1ribu' => $this->request->getPost('cash_close_1ribu'),
             '500perak' => $this->request->getPost('cash_close_500perak'),
-            'modified_at' => date('Y-m-d H:i:s'),
+            'modified_at' => Time::now('Asia/Jakarta'),
             'modified_by' => session()->get('name'),
             'warehouse' => $warehouse
         ]);
