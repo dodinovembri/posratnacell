@@ -53,7 +53,7 @@
             <!-- content -->
             <div class="container mt-3 mt-lg-4 mt-xl-5" id="main-content">
                 <h4><?= is_null($desc_cash) ? '' : $desc_cash; ?></h4>
-                <form
+                <form id="myForm"
                     <?php
                     if (session()->get('role') == "owner") {
                         if (is_null($cash_open)) { ?>
@@ -219,7 +219,7 @@
                     <br>
                     <div class="col-12">
                         <div class="form-floating mb-3">
-                            <button class="form-control" type="submit">SIMPAN</button>
+                            <button class="form-control" type="submit" id="submitBtn">SIMPAN</button>
                         </div>
                     </div>
                 </form>
@@ -241,11 +241,19 @@
             info: false,
             searching: false
         });
+
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            var submitBtn = document.getElementById('submitBtn');
+
+            // Disable submit button to prevent multiple clicks
+            submitBtn.disabled = true;
+
+            // Optionally, you can change button text to show it's processing
+            submitBtn.innerHTML = "Processing...";
+
+            // Form akan tetap dikirimkan seperti biasa
+        });
     </script>
-
-    <!-- Page Level js -->
-    <script src="https://www.adminuiux.com/adminuiux/ecommerce-mobile-uiux/assets/js/ecommerce/ecommerce-products.js"></script>
-
 </body>
 
 </html>

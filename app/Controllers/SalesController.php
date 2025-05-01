@@ -18,7 +18,7 @@ class SalesController extends BaseController
 
 
         $data['sales'] = $sales->table('sales')
-            ->select('sales.product_code, sales.amount, sales.date, product.name')
+            ->select('sales.id, sales.product_code, sales.amount, sales.date, product.name')
             ->join('product', 'product.id = sales.product_id', 'right')
             ->where('warehouse', $warehouse)
             ->where('DATE(date)', $date_now)
@@ -168,6 +168,107 @@ class SalesController extends BaseController
             'date' => Time::now('Asia/Jakarta'),
             'warehouse' => $warehouse,
             'user' => session()->get('name'),
+        ]);
+
+        session()->setFlashdata('success', 'Data Berhasil Ditambahkan');
+        return redirect()->to(base_url('sales'));
+    }
+
+    public function edit($id)
+    {
+        $sales = new SalesModel();
+        $sales_data = $sales->where('sales.id', $id)
+            ->select('sales.*, product.code, product.name, product.product_type')
+            ->join('product', 'sales.product_id = product.id', 'left')
+            ->get()->getFirstRow();
+
+        if ($sales_data->product_type == "fee_fixed") {
+            $warehouse = session()->get('warehouse');
+            $sales_data = $sales->where('sales.id', $id)
+                ->select('sales.*, product.code, product.name, product.product_type, stock.qty as qty_stock')
+                ->join('product', 'sales.product_id = product.id', 'left')
+                ->join('stock', 'product.id = stock.product_id', 'right')
+                ->where('stock.warehouse', $warehouse)
+                ->get()->getFirstRow();
+        }
+
+        $data['sales'] = $sales_data;
+        return view('sales/edit', $data);
+    }
+
+    public function update_fee_transfer($id)
+    {
+        $base_price = intval(str_replace('.', '', $this->request->getPost('base_price')));
+        $admin_fee = intval(str_replace('.', '', $this->request->getPost('admin_fee')));
+        $final_amount = $base_price + $admin_fee;
+
+        $update = new SalesModel();
+        $update->update($id, [
+            'base_price' => $base_price,
+            'selling_price' => $final_amount,
+            'amount' => $final_amount,
+            'modified_date' => Time::now('Asia/Jakarta'),
+            'modified_by' => session()->get('name')
+        ]);
+
+        session()->setFlashdata('success', 'Data Berhasil Ditambahkan');
+        return redirect()->to(base_url('sales'));
+    }
+
+    public function update_fee_package($id)
+    {
+        $base_price = intval(str_replace('.', '', $this->request->getPost('base_price')));
+        $selling_price = intval(str_replace('.', '', $this->request->getPost('selling_price')));
+        $final_amount = $selling_price;
+
+        $update = new SalesModel();
+        $update->update($id, [
+            'base_price' => $base_price,
+            'selling_price' => $selling_price,
+            'amount' => $final_amount,
+            'modified_date' => Time::now('Asia/Jakarta'),
+            'modified_by' => session()->get('name')
+        ]);
+
+        session()->setFlashdata('success', 'Data Berhasil Ditambahkan');
+        return redirect()->to(base_url('sales'));
+    }
+
+    public function update_fee_fixed($id)
+    {
+        $qty_order = intval($this->request->getPost('qty_order'));
+        $discount = intval($this->request->getPost('discount'));
+        $selling_price = $this->request->getPost('selling_price');
+        $final_amount = ($qty_order * $selling_price) - $discount;
+
+        // for update stock
+        $sales_data = new SalesModel();
+        $sales_data = $sales_data->where('id', $id)->get()->getFirstRow();
+        
+        $stock = new StockModel();
+        $warehouse = session()->get('warehouse');
+        $stock = $stock->where('product_id', $sales_data->product_id)
+            ->where('stock.warehouse', $warehouse)
+            ->get()->getFirstRow();
+        
+        $aftersale_stock = $stock->qty + $sales_data->qty - $qty_order;
+        
+        // update sales
+        $update = new SalesModel();
+        $update->update($id, [
+            'qty' => $this->request->getPost('qty_order'),
+            'amount' => $final_amount,
+            'discount' => $discount,
+            'modified_date' => Time::now('Asia/Jakarta'),
+            'modified_by' => session()->get('name')
+        ]);
+
+        // update stock
+        $stock_update = new StockModel();
+        $stock_update->update($stock->id, [
+            'qty' => $aftersale_stock,
+            'modified_at' => Time::now('Asia/Jakarta'),
+            'modified_by' => session()->get('name')
         ]);
 
         session()->setFlashdata('success', 'Data Berhasil Ditambahkan');

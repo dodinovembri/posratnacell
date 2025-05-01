@@ -46,7 +46,7 @@
             <div class="card bg-none mb-3 mb-lg-4">
                 <div class="card-body pb-0">
                     <div class="row gx-3 gx-lg-4">
-                        <form action="<?= base_url('adjustment/store') ?>" method="post" enctype="multipart/form-data">
+                        <form id="myForm" action="<?= base_url('adjustment/store') ?>" method="post" enctype="multipart/form-data">
                             <div class="col-12">
                                 <h6 class="mb-3">Buat Produk</h6>
                             </div>
@@ -81,7 +81,7 @@
                                         <input class="form-control" placeholder="Jumlah Stok" type="number" name="qty" required>
                                         <label>Jumlah Stok</label>
                                     </div>
-                                   
+
                                 </div>
                             </div>
                             <div class="col-12">
@@ -92,7 +92,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating mb-3">
-                                    <button class="form-control" type="submit">SUBMIT</button>
+                                    <button class="form-control" type="submit" id="submitBtn">SUBMIT</button>
                                 </div>
                             </div>
                         </form>
@@ -108,6 +108,19 @@
         </div>
     </footer>
 
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            var submitBtn = document.getElementById('submitBtn');
+
+            // Disable submit button to prevent multiple clicks
+            submitBtn.disabled = true;
+
+            // Optionally, you can change button text to show it's processing
+            submitBtn.innerHTML = "Processing...";
+
+            // Form akan tetap dikirimkan seperti biasa
+        });
+    </script>
 </body>
 
 </html>

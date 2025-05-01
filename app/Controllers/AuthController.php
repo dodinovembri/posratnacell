@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Controllers;
-
 use App\Models\UserModel;
+use CodeIgniter\I18n\Time;
 
 class AuthController extends BaseController
 {
@@ -30,7 +30,8 @@ class AuthController extends BaseController
                     'email'    => $data['email'],
                     'role' => $data['role'],
                     'warehouse' => $data['warehouse'],
-                    'logged_in'     => TRUE
+                    'logged_in'     => TRUE,
+                    'login_date'   => Time::now('Asia/Jakarta')->toDateString()
                 ];
                 $session->set($ses_data);
                 return redirect()->to(base_url('dashboard'));

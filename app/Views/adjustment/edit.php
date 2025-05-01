@@ -55,7 +55,7 @@
             <div class="card bg-none mb-3 mb-lg-4">
                 <div class="card-body pb-0">
                     <div class="row gx-3 gx-lg-4">
-                        <form action="<?= base_url('product/update/' . $product->id) ?>" method="post" enctype="multipart/form-data">
+                        <form id="myForm" action="<?= base_url('product/update/' . $product->id) ?>" method="post" enctype="multipart/form-data">
                             <div class="col-12">
                                 <h6 class="mb-3">Edit Produk</h6>
                             </div>
@@ -103,7 +103,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating mb-3">
-                                    <button class="form-control" type="submit">SUBMIT</button>
+                                    <button class="form-control" type="submit" id="submitBtn">SUBMIT</button>
                                 </div>
                             </div>
                         </form>

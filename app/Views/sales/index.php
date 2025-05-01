@@ -3,34 +3,34 @@
 <!-- dir="rtl"-->
 
 <head>
-	<!-- Required meta tags  -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Required meta tags  -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-	<meta name="application-name" content="RatnaCell">
-	<meta name="apple-mobile-web-app-title" content="RatnaCell">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="white">
-	<link rel="apple-touch-icon" href="<?= base_url('img/logo-512.png') ?>">
+    <meta name="application-name" content="RatnaCell">
+    <meta name="apple-mobile-web-app-title" content="RatnaCell">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <link rel="apple-touch-icon" href="<?= base_url('img/logo-512.png') ?>">
 
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Ratna Cellular And Collections</title>
-	<meta name="description" content="Ratna Cellular And Collections">
-	<link rel="icon" type="image/png" href="<?= base_url('img/favicon.png') ?>">
-	<link href="<?= base_url('css/fonts.css') ?>" rel="stylesheet">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Ratna Cellular And Collections</title>
+    <meta name="description" content="Ratna Cellular And Collections">
+    <link rel="icon" type="image/png" href="<?= base_url('img/favicon.png') ?>">
+    <link href="<?= base_url('css/fonts.css') ?>" rel="stylesheet">
 
-	<style>
-		:root {
-			--adminuiux-content-font: "Open Sans", serif;
-			--adminuiux-content-font-weight: 400;
-			--adminuiux-title-font: "Poppins", serif;
-			--adminuiux-title-font-weight: 600;
-		}
-	</style>
+    <style>
+        :root {
+            --adminuiux-content-font: "Open Sans", serif;
+            --adminuiux-content-font-weight: 400;
+            --adminuiux-title-font: "Poppins", serif;
+            --adminuiux-title-font-weight: 600;
+        }
+    </style>
 
-	<script defer src="<?= base_url('js/app.js') ?>"></script>
-	<link href="<?= base_url('css/app.css') ?>" rel="stylesheet">
+    <script defer src="<?= base_url('js/app.js') ?>"></script>
+    <link href="<?= base_url('css/app.css') ?>" rel="stylesheet">
 
     <!-- CSS DataTables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
@@ -74,18 +74,24 @@
                     <thead>
                         <tr>
                             <th style="text-align: left;">Waktu</th>
-                            <th style="text-align: left;">Kode</th>
                             <th style="text-align: left;">Nama</th>
                             <th style="text-align: left;">Harga Jual</th>
+                            <th style="text-align: left;">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($sales as $key => $value) { ?>
                             <tr>
                                 <td style="text-align: left;"><?= date('H:i', strtotime($value->date)); ?></td>
-                                <td style="text-align: left;"><?= $value->product_code ?></td>
                                 <td style="text-align: left;"><?= $value->name ?></td>
                                 <td style="text-align: left;"><?= $value->amount ?></td>
+                                <td style="text-align: left;">
+                                    <a href="<?= base_url('sales/edit/' . $value->id) ?>">
+                                        <button type="button" class="btn btn-primary">
+                                            Edit
+                                        </button>
+                                    </a>
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -127,37 +133,36 @@
                 });
             });
         });
-    
-		$('#myTable').DataTable({
-			"lengthChange": false,
-			paging: false,
+
+        $('#myTable').DataTable({
+            "lengthChange": false,
+            paging: false,
             ordering: false,
-            info: false,
             searching: false,
-			columnDefs: [{
-				targets: 3, // kolom ke-2 (indeks dimulai dari 0)
-				render: function(data, type, row) {
-					return formatRupiah(data, '');
-				}
-			}]
-		});
+            columnDefs: [{
+                targets: 2, // kolom ke-2 (indeks dimulai dari 0)
+                render: function(data, type, row) {
+                    return formatRupiah(data, '');
+                }
+            }]
+        });
 
-		function formatRupiah(angka, prefix) {
-			let number_string = angka.toString().replace(/[^,\d]/g, ''),
-				split = number_string.split(','),
-				sisa = split[0].length % 3,
-				rupiah = split[0].substr(0, sisa),
-				ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+        function formatRupiah(angka, prefix) {
+            let number_string = angka.toString().replace(/[^,\d]/g, ''),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
 
-			if (ribuan) {
-				let separator = sisa ? '.' : '';
-				rupiah += separator + ribuan.join('.');
-			}
+            if (ribuan) {
+                let separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
 
-			rupiah = split[1] !== undefined ? rupiah + ',' + split[1] : rupiah;
-			return prefix + rupiah;
-		}
-	</script>
+            rupiah = split[1] !== undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix + rupiah;
+        }
+    </script>
 
 </body>
 

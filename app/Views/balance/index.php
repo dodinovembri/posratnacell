@@ -82,7 +82,7 @@
 
                                     <!-- Modal -->
 
-                                    <form action="<?= base_url('balance/update_balance/' . $value->id) ?>" method="post" enctype="multipart/form-data" class="form-harga">
+                                    <form id="myForm" action="<?= base_url('balance/update_balance/' . $value->id) ?>" method="post" enctype="multipart/form-data" class="form-harga">
                                         <div class="modal fade" id="exampleModal<?= $value->id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -139,7 +139,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                                        <button type="submit" class="btn btn-primary" id="submitBtn">Simpan</button>
                                                     </div>
                                                     <div id="content-adjust-<?= $value->id; ?>"></div>
                                                 </div>
@@ -286,6 +286,16 @@
                         console.log(xhr.responseText);
                     }
                 });
+            });
+        });
+
+        document.querySelectorAll('.form-harga').forEach(function(form) {
+            form.addEventListener('submit', function(e) {
+                const submitBtn = form.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = "Processing...";
+                }
             });
         });
     </script>

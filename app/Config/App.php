@@ -199,4 +199,7 @@ class App extends BaseConfig
      * @see http://www.w3.org/TR/CSP/
      */
     public bool $CSPEnabled = false;
+
+    public $cookieLifetime = 2592000; // 1 bulan dalam detik (30 hari)
+    public $sessionExpiration = 2592000; // Session tetap aktif selama 1 bulan (30 hari)
 }

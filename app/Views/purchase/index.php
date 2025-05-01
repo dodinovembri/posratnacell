@@ -132,7 +132,6 @@
 			"lengthChange": false,
 			paging: false,
             ordering: false,
-            info: false,
             searching: false,
 			columnDefs: [{
 				targets: 3, // kolom ke-2 (indeks dimulai dari 0)

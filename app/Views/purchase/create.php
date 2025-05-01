@@ -45,7 +45,7 @@
         <main class="adminuiux-content">
 
 
-            <form action="<?= base_url('purchase/store') ?>" method="post" enctype="multipart/form-data" class="form-harga">
+            <form id="myForm" action="<?= base_url('purchase/store') ?>" method="post" enctype="multipart/form-data" class="form-harga">
                 <div class="card bg-none mb-3 mb-lg-4">
                     <div class="card-body pb-0">
                         <div class="row gx-3 gx-lg-4">
@@ -91,7 +91,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating mb-3">
-                                    <button class="form-control" type="submit">SIMPAN</button>
+                                    <button class="form-control" type="submit" id="submitBtn">SIMPAN</button>
                                 </div>
                             </div>
                         </div>
@@ -141,6 +141,18 @@
                     }
                 });
             });
+        });
+
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            var submitBtn = document.getElementById('submitBtn');
+
+            // Disable submit button to prevent multiple clicks
+            submitBtn.disabled = true;
+
+            // Optionally, you can change button text to show it's processing
+            submitBtn.innerHTML = "Processing...";
+
+            // Form akan tetap dikirimkan seperti biasa
         });
     </script>
 </body>
