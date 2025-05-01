@@ -156,6 +156,18 @@
 						</a>
 					</div>
 
+					<div class="col-6 col-sm-6 col-lg-4 mb-3">
+						<a href="<?= base_url('stock') ?>" class="card adminuiux-card shadow-sm style-none">
+							<div class="card-body">
+								<div class="row gx-3">
+									<div class="col">
+										<p>UPDATE STOK</p>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+
 				</div>
 			</div>
 		</main>

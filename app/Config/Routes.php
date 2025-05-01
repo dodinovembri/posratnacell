@@ -81,3 +81,8 @@ $routes->group('adjustment', ['filter' => 'auth'], function ($routes) {
     $routes->get('create/(:num)', [\App\Controllers\AdjustmentController::class, 'create']);
     $routes->post('store', [\App\Controllers\AdjustmentController::class, 'store']);
 });
+
+$routes->group('stock', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/', [\App\Controllers\StockController::class, 'index']);
+    $routes->post('update/(:num)', [\App\Controllers\StockController::class, 'update']);
+});
